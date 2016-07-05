@@ -1,0 +1,59 @@
+#!/bin/bash
+
+########################################
+# Author: 贾瑞鹏
+# 环境: Ubuntu 14.04 LTS
+# 下面有while循环的版本
+# 注意空格，等号左右不能有空格
+# 两个for可以嵌套
+# 两个while或者for-while嵌套不可以
+# 而且 !/bin/bash 的声明必须放在第一行
+# 否则会提示循环不能执行
+########################################
+
+for((i=1;i<=4;i++))
+do
+    for((j=1;j<=30;j++))
+    do
+        if [ $j -le 9 ]
+        then
+            USERNAME=jsjclassI${i}str0${j}
+        else
+            USERNAME=jsjclassI${i}stu${j}
+        fi
+        # 增加用户
+        # useradd $USERNAME
+        # 删除用户
+        # userdel -r $USERNAME
+        echo $USERNAME 
+    done
+done
+
+
+
+:<<!EOF!
+# 下面是 while 循环的实例
+
+echo hello
+i=1
+c=1
+groupadd class1
+while [ $c -le 4 ] 
+
+for ((c=1;c<=4;c++))
+do
+    while [ $i -le 30 ]
+    do
+        if [ $i -le 9 ]
+        then
+            USERNAME=jsjclassI${c}stu0${i}
+        else
+            USERNAME=jsjclassI${c}stu${i}
+        fi
+        useradd $USERNAME
+        i=$(($i+1))
+    done
+    c=$(($c+1))
+done
+
+!EOF!

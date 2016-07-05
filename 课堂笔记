@@ -1,0 +1,217 @@
+字符设备
+块设备
+
+驱动程序 和 普通程序的区别  :
+1. 程序结构完全不同    没有 main 函数
+2. 驱动 程序不需要链接,编译成目标文件即可
+user space; kernel space
+
+lsmod # 查看模块
+因为没有 GPL ,所以加一次再删一次以后, 驱动会崩溃,只有恢复快照
+insmod evan.o # 插入驱动模块
+# 没有 GNU GPL 的生命,会提示 污染内核空间
+rmmod # 删除模块
+
+mknod /dev/evan c 99 0
+
+步骤 test_demo.c nodevfs.c
+makefile (/usr/src/linux-2.4/include 一定要调用这个文件)
+make -> evan.o    test_demo  
+insmod evan.o
+mknod /dev/evan c 99 0 # 主次 设备号 # rmmod evan 删除模块
+./test_demo 执行测试程序,查看是否正确
+
+fops file_operations 文件操作集
+chrdev 字符设备
+register_chrdev 初始化 注册 字符设备
+unregister_chrdev 注销 设备
+
+
+####### 驱动 只改 do_write
+do_write(m, n){
+    return matrix;
+}
+
+ll   主设备号 次设备号 设备名
+
+
+进程 5 个放到一个 curses
+
+驱动程序 (实现 螺旋矩阵 )
+
+实现一个 shell  word 83 页 制实现 1.  bye 退出 2. 实现 bin 目录下的功能
+打印错误
+
+系统调用
+实验 14 15 任选一个
+
+
+
+upcosjsj2013@sina.com
+upcosjsj
+
+
+makefile
+
+target:source
+    command
+
+if xxx
+then
+    xxx
+else
+    xxx
+if
+
+
+
+case
+
+esac
+
+
+
+while xxx
+do
+    xxx
+done
+
+-le 小于等于
+-lt 小于
+-ge
+-gt
+-eq
+-ne
+
+
+
+
+Redhat
+make menuconfig
+make dep
+make bzImage
+小写makefile的优先级比较高
+
+
+
+文件夹命令
+文件命令
+mv
+cp
+rm
+
+mkdir -p /root/1/2
+cp -r 递归创建
+mv 不需要-r
+
+find /root -name *lib*
+find path -name *key*
+
+cat 
+grep lib install.log 
+grep key file
+
+
+文件内容命令
+
+
+
+
+文件权限
+
+
+chmod
+chown
+chgrp
+u g o
+
+
+mount source destation
+mke2fs /dev/fd0 格式化软盘
+unmount /dev/fd0
+unmount /
+
+       DB    AB   CB    M
+DOS    16    20         1M
+
+
+操作系统结构
+bootloader
+kernel
+rootfs  (root file system)
+三个部分
+
+bootloader 常用的 grub lilo uboot
+/boot/vmlinuz-  就是内核 几兆大小
+把当前的16位引导系统初始化，准备把32位或64位的操作系统装进去
+16位dos 不需要引导
+
+kernel
+kernel space
+看不见的
+
+rootfs
+user space
+
+
+/proc 文件化
+/dev
+
+bios 硬件 coms 软件 启动程序
+
+U-Linux -> mount HD -> 拷贝到U盘 偷文件
+
+FLoo
+
+booting “12016222”
+
+文件系统一个脚本，自己的
+
+
+pthread
+process
+job
+作业有一个线程或进程组成
+进程中不一定有线程
+window 线程做的最好
+
+pthread_create(pid, null, func, null) func,是指向的函数
+pthread_exit(pid, null) 返回值为空，主动退出线程，很少见
+pthread_join(pid, null) 被动退出线程，func执行玩后退出
+
+gcc -lpthread -o pth pth.c  线程库是附加库
+
+void pic()
+void music()
+
+main()
+pthread_t idA, idB;
+pthread_creat(&idA, pic)
+pthread_create(&idB, music)
+pthtread_join(idA)
+pthread_join(idB)
+
+线程 无序 同步
+
+mntex_lock 互斥锁
+mtex_unlock # 前边的字母看不见
+condition_signal
+condition_wait
+
+producer_consumer
+
+producer
+mutex_lock
+con_wait(not full)
+    pro(n)
+    pp+=1
+con_signal(not empty)
+mutex_unlock
+
+
+consumer
+mutex_lock
+con_wait(not empty)
+    con(m)
+con_signal(not full)
+mutex_unlock

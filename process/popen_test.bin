@@ -1,0 +1,10 @@
+total 48
+-rw-r--r-- 1 coder352 coder352 1172 6月  28 15:47 fifo1.c
+-rw-r--r-- 1 coder352 coder352 2043 6月  28 16:15 fifo2.c
+prw-rw-r-- 1 coder352 coder352    0 6月  28 16:39 fifo_test
+-rw-r--r-- 1 coder352 coder352 2046 6月  28 13:15 fork.c
+-rw-rw-r-- 1 coder352 coder352  534 6月  28 16:39 makefile
+-rw-r--r-- 1 coder352 coder352 2319 6月  28 14:29 pipe.c
+-rw-r--r-- 1 coder352 coder352   95 6月  28 14:04 pipe_hello
+-rwxrwxr-x 1 coder352 coder352 9016 6月  28 16:53 popen
+-rw-r--r-- 1 code
